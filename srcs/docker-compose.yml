@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  server: # service name
+  web_server: # service name
     image: nginx # image is built with build
     build: ./requirements/nginx
     #configs:
@@ -11,39 +11,43 @@ services:
     #    gid: "103"
     #    mode: 0440
     volumes:
-      - web-volume:/home/suahn/data:rw
+      - web-data:/home/suahn/data/www:rw
+    restart: always
     expose: # publish the ports to the linked services of the container
       - "9000"
-  web:
-    image: wordpress
-    build: ./requirements/wordpress
-    volumes:
-      - web-volume:/home/suahn/data/www:rw
-    expose:
-      - "3306"
-      - "9000"
-    depends_on:
-      - nginx
-      - maraidb
+    ports:
+      - "8080:9000/tcp" # host:container
   db:
     image: mariadb
     build: ./requirements/mariadb
     volumes:
-      - db-volume:/home/suahn/data/db:rw
+      - db-data:/home/suahn/data/mariadb:rw
+    restart: always
+    env_file: .env
     expose:
       - "3306"
+  web:
+    image: wordpress
+    #build: ./requirements/wordpress
+    volumes:
+      - web-data:/home/suahn/data/www:rw
+    restart: always
+    env_file: .env
+    expose:
+      - "3306"
+      - "9000"
+    depends_on:
+      - web_server
+      - db
 
+volumes:
+  db-data:
+  web-data:
 #configs:
 # my_config:
 #   external: true
-
-entrypoint:
+#entrypoint: "/usr/sbin/nginx", "-g", "daemon off;"
 
 networks:
   default:
     driver: bridge
-
-env_file: .env
-
-ports:
-  - "443:9000/tcp" # host:container

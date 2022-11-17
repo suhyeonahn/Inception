@@ -1,5 +1,6 @@
 FROM debian:buster
 LABEL org.opencontainers.image.authors="suahn@student.42.fr"
+LABEL description="Nginx Server"
 #INSTALL NGINX & OPENSSL
 RUN apt-get update \
     && apt-get upgrade -y \
