@@ -18,7 +18,7 @@ services:
     image: wordpress
     build: ./requirements/wordpress
     volumes:
-      - web-volume:/home/suahn/data:rw
+      - web-volume:/home/suahn/data/www:rw
     expose:
       - "3306"
       - "9000"
@@ -29,7 +29,7 @@ services:
     image: mariadb
     build: ./requirements/mariadb
     volumes:
-      - db-volume:/home/suahn/data:rw
+      - db-volume:/home/suahn/data/db:rw
     expose:
       - "3306"
 

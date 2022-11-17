@@ -9,6 +9,8 @@ RUN apt-get update \
 WORKDIR /var/www/html
 RUN wget https://wordpress.org/latest.tar.gz \
     && tar -zxvf latest.tar.gz && rm -rf latest.tar.gz \
-    && mv wordpress/* ./ && rm -r wordpress
+    && mv wordpress/* . && rm -r wordpress
+#CONFIG WORDPRESS
+COPY conf/wp-config.php .
 
 CMD ["service", "wordpress", "start"]

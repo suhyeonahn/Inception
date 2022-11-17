@@ -1,18 +1,17 @@
 FROM debian:buster
 LABEL org.opencontainers.image.authors="suahn@student.42.fr"
-
+#INSTALL NGINX & OPENSSL
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y nginx \
     && apt-get install -y openssl
-
-# NGINX CONFIG && SSL
+#CONFIG NGINX & SSL
 COPY conf/nginx.conf /etc/nginx/
 RUN mkdir -p /etc/nginx/ssl \
     && openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout \
-    /etc/nginx/ssl/localhost.key -out /etc/nginx/ssl/localhost.crt \
+    /etc/nginx/ssl/ssl_cert.key -out /etc/nginx/ssl/ssl_cert.crt \
     -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=Suahn/CN=localhost/EA=suahn@student.42.fr"
 
-EXPOSE 9000/tcp
+EXPOSE 443/tcp
 
-CMD ["service", "nginx", "start"]
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
