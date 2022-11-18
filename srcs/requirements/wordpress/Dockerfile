@@ -4,7 +4,7 @@ LABEL description="Wordpress"
 #INSTALL PHP SCRIPTING LANGUAGE that is needed to run WORDPRESS
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y php libapache2-mod-php php-mysql \
+    && apt-get install -y php libapache2-mod-php php-mysql php-fpm\
     && apt-get install -y wget
 #INSTALL WORDPRESS & CLI
 WORKDIR /var/www/html
@@ -15,4 +15,5 @@ RUN wget https://wordpress.org/latest.tar.gz \
 #CONFIG WORDPRESS
 COPY conf/wp-config.php .
 
-CMD ["php", "wp-cli.phar", "server", "--allow-root"]
+CMD ["php-fpm"]
+#CMD ["php", "wp-cli.phar", "server", "--allow-root"]

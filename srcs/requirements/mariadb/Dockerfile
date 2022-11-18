@@ -8,4 +8,7 @@ RUN apt-get update \
 
 EXPOSE 3306/tcp
 
+# RUN mysql < script.sql
+# RUN mysql -e "CREATE DATABASE IF NOT EXISTS dbname;"
+
 CMD ["mysqld"]

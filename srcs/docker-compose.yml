@@ -28,7 +28,7 @@ services:
       - "3306"
   web:
     image: wordpress
-    #build: ./requirements/wordpress
+    build: ./requirements/wordpress
     volumes:
       - web-data:/home/suahn/data/www:rw
     restart: always
