@@ -1,7 +1,7 @@
 # Inception
 
 -wordpress config
-https://www.wpbeginner.com/beginners-guide/how-to-edit-wp-config-php-file-in-wordpress/
+https://www.wpbeginner.com/beginners-guide/how-to-edit-wp-config-php-file-in-wordpress/\n
 -create user in db
 https://mariadb.com/kb/en/create-user/
 -wordpress&mysqr docker compose file example
