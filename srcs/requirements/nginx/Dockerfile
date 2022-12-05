@@ -8,7 +8,6 @@ RUN apt-get update \
     && apt-get install -y openssl
 #CONFIG NGINX & SSL
 COPY conf/default /etc/nginx/sites-enabled/
-#COPY conf/nginx.conf /etc/nginx/
 RUN mkdir -p /etc/nginx/ssl \
     && openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout \
     /etc/nginx/ssl/ssl_cert.key -out /etc/nginx/ssl/ssl_cert.crt \

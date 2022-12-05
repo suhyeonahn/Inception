@@ -2,37 +2,42 @@ version: "3.7"
 
 services:
   web_server: # service name
-    image: nginx # image is built with build
+    #image: nginx # image is built with build
     build: ./requirements/nginx
-    #configs:
-    #  - source: #my_config
-    #    target: #/nginx_config
-    #    uid: "103"
-    #    gid: "103"
-    #    mode: 0440
     volumes:
       - web-data:/home/suahn/data/www:rw
     restart: always
     expose: # publish the ports to the linked services of the container
       - "9000"
     ports:
-      - "8080:9000/tcp" # host:container
+      - "8080:443/tcp" # host:container
   db:
-    image: mariadb
+    #image: mariadb
     build: ./requirements/mariadb
+    #command: '--default-authentication-plugin=mysql_native_password'
     volumes:
       - db-data:/home/suahn/data/mariadb:rw
     restart: always
-    env_file: .env
+    #env_file: .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=suahn
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
     expose:
       - "3306"
   web:
-    image: wordpress
+    #image: wordpress
     build: ./requirements/wordpress
     volumes:
       - web-data:/home/suahn/data/www:rw
     restart: always
-    env_file: .env
+    #env_file: .env
+    environment:
+      - WORDPRESS_DB_HOST=localhost
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
     expose:
       - "3306"
       - "9000"
@@ -46,7 +51,7 @@ volumes:
 #configs:
 # my_config:
 #   external: true
-#entrypoint: "/usr/sbin/nginx", "-g", "daemon off;"
+#entrypoint: ./entrypoint.sh
 
 networks:
   default:
