@@ -14,5 +14,7 @@ RUN mkdir -p /etc/nginx/ssl \
     -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=Suahn/CN=localhost/EA=suahn@student.42.fr"
 
 EXPOSE 443/tcp
+RUN echo "<?php phpinfo(); ?>" >> /var/www/html/info.php
 
+RUN ["service", "nginx", "start"]
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

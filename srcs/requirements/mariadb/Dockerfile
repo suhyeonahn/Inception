@@ -4,11 +4,13 @@ LABEL description="MariaDB Server"
 #INSTALL MARIADB
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y mariadb-server
+    && apt-get install -y mariadb-server \
+    && apt-get install -y sudo
 
 EXPOSE 3306/tcp
 
-# RUN mysql < script.sql
-# RUN mysql -e "CREATE DATABASE IF NOT EXISTS dbname;"
+COPY conf/setup.sql /docker-entrypoint-initdb.d/
 
-CMD ["mysqld"]
+RUN ["service", "mysql", "start"]
+RUN sudo mysql -u root -p
+CMD ["mysql"]
