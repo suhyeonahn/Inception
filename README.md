@@ -16,5 +16,7 @@ https://github.com/docker/awesome-compose/blob/master/wordpress-mysql/compose.ya
 
 
 solve php-fpm sock error
-https://stackoverflow.com/questions/51158830/nginx-connect-to-unix-var-run-php7-2-fpm-sock-failed-2-no-such-file-or-dir
 https://jaedoong.tistory.com/entry/Docker%EB%A1%9C-Nginx-PHP-FPM-%EC%97%B0%EA%B2%B0
+
+TRY THIS
+https://stackoverflow.com/questions/29905953/how-to-correctly-link-php-fpm-and-nginx-docker-containers
