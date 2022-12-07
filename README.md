@@ -14,3 +14,6 @@ https://mariadb.com/kb/en/create-user/
 -wordpress&mysqr docker compose file example
 https://github.com/docker/awesome-compose/blob/master/wordpress-mysql/compose.yaml
 
+
+solve php-fpm sock error
+https://stackoverflow.com/questions/51158830/nginx-connect-to-unix-var-run-php7-2-fpm-sock-failed-2-no-such-file-or-dir
