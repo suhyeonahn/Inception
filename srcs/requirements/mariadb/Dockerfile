@@ -9,8 +9,17 @@ RUN apt-get update \
 
 EXPOSE 3306/tcp
 
-COPY conf/setup.sql /docker-entrypoint-initdb.d/
+WORKDIR /docker-entrypoint-initdb.d
 
-RUN ["service", "mysql", "start"]
-RUN sudo mysql -u root -p
-CMD ["mysql"]
+#COPY conf/setup.sql ./
+#RUN ["chmod", "755", "setup.sql"]
+
+COPY conf/test.sh ./
+RUN ["chmod", "755", "test.sh"]
+
+COPY conf/start-service.sh ./
+
+#this runs the script within my own interactive shell,
+#instead of spawning another shell to run it.
+CMD . ./start-service.sh
+#CMD ["bash", "start-service.sh"]
