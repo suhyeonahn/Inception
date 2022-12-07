@@ -5,7 +5,7 @@ services:
     #image: nginx # image is built with build
     build: ./requirements/nginx
     volumes:
-      - web-data:/var/www/http
+      - web-data:/var/www/html
     #  - web-data:/var/www/http:rw
     restart: always
     expose: # publish the ports to the linked services of the container
@@ -29,7 +29,7 @@ services:
     #image: wordpress
     build: ./requirements/wordpress
     volumes:
-      - web-data:/var/www/http
+      - web-data:/var/www/html
     # - web-data:/var/www/http:rw
     restart: always
     stdin_open: true # -i
