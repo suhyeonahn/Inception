@@ -16,5 +16,6 @@ RUN mkdir -p /etc/nginx/ssl \
 EXPOSE 443/tcp
 RUN echo "<?php phpinfo(); ?>" >> /var/www/html/info.php
 
-RUN ["service", "nginx", "start"]
+#RUN ["service", "nginx", "start"]
+#run in debug mode (foreground)
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

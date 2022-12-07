@@ -15,6 +15,8 @@ RUN apt-get update \
     #&& apt-get install -y php libapache2-mod-php php7.3 php-json php-mbstring php-mysql php-fpm \
     && apt-get install php7.3-fpm -y \
     && apt-get install -y wget
+EXPOSE 3306/tcp
+EXPOSE 9000/tcp
 #INSTALL WORDPRESS
 WORKDIR /var/www/html
 RUN wget https://wordpress.org/latest.tar.gz \
@@ -23,4 +25,5 @@ RUN wget https://wordpress.org/latest.tar.gz \
 #CONFIG WORDPRESS
 COPY conf/wp-config.php .
 
-CMD ["service", "php7.3-fpm", "start"]
+#CMD ["service", "php7.3-fpm", "start",";php", "-a"]
+CMD service php7.3-fpm start; php -a

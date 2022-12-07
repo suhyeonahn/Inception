@@ -30,13 +30,14 @@ services:
  #   volumes:
   #    - web-data:/home/suahn/data/www:rw
     restart: always
+    stdin_open: true # -i
+    tty: true # -t
     env_file: .env
     expose:
       - "3306"
       - "9000"
     depends_on:
       - db
-    #tty: true
 
 #volumes:
 #  db-data:
