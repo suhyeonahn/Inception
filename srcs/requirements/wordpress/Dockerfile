@@ -16,7 +16,7 @@ RUN apt-get update \
     && apt-get install php7.3-fpm -y \
     && apt-get install -y wget
 EXPOSE 3306/tcp
-EXPOSE 9000/tcp
+EXPOSE 9000/tcp 
 #INSTALL WORDPRESS
 WORKDIR /var/www/html
 RUN wget https://wordpress.org/latest.tar.gz \

@@ -4,8 +4,9 @@ services:
   nginx: # service name
     #image: nginx # image is built with build
     build: ./requirements/nginx
-    #volumes:
-    #  - web-data:/home/suahn/data/www:rw
+    volumes:
+      - web-data:/var/www/http
+    #  - web-data:/var/www/http:rw
     restart: always
     expose: # publish the ports to the linked services of the container
       - "9000"
@@ -27,8 +28,9 @@ services:
   wordpress:
     #image: wordpress
     build: ./requirements/wordpress
- #   volumes:
-  #    - web-data:/home/suahn/data/www:rw
+    volumes:
+      - web-data:/var/www/http
+    # - web-data:/var/www/http:rw
     restart: always
     stdin_open: true # -i
     tty: true # -t
@@ -39,9 +41,14 @@ services:
     depends_on:
       - db
 
-#volumes:
+volumes:
 #  db-data:
-#  web-data:
+  web-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/suahn/data/www
 
 networks:
   default:
