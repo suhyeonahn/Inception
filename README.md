@@ -14,3 +14,9 @@ https://mariadb.com/kb/en/create-user/
 -wordpress&mysqr docker compose file example
 https://github.com/docker/awesome-compose/blob/master/wordpress-mysql/compose.yaml
 
+
+solve php-fpm sock error
+https://jaedoong.tistory.com/entry/Docker%EB%A1%9C-Nginx-PHP-FPM-%EC%97%B0%EA%B2%B0
+
+TRY THIS
+https://stackoverflow.com/questions/29905953/how-to-correctly-link-php-fpm-and-nginx-docker-containers
