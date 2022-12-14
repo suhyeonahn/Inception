@@ -3,6 +3,7 @@ version: "3.7"
 services:
   nginx: # service name
     #image: nginx # image is built with build
+    container_name: nginx
     build: ./requirements/nginx
     volumes:
       - web-data:/var/www/html
@@ -14,14 +15,17 @@ services:
     env_file: .env
     extra_hosts:
       - "${DOMAIN_NAME}:127.0.0.1" # created in /etc/hosts
+    dns_search:
+      - suahn.42.fr
     depends_on:
       - wordpress
     #tty: true
   db:
     #image: mariadb
+    container_name: db
     build: ./requirements/mariadb
-    #volumes:
-    #  - db-data:/home/suahn/data/mariadb:rw
+    volumes:
+      - db-data:/var/lib/mysql
     restart: always
     env_file: .env
     expose:
@@ -44,7 +48,7 @@ services:
       - db
 
 volumes:
-#  db-data:
+  db-data:
   web-data: # named volume can persist data after restart or remove a container
     #driver: local
     #driver_opts:

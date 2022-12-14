@@ -22,7 +22,7 @@ server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
-	server_name _;
+	server_name suahn.42.fr;
 
     return 403;
 }
@@ -34,8 +34,8 @@ server {
 # to sites-enabled/ to enable it.
 #
 server {
-    listen 443 ssl;
-	listen [::]:443 ssl;
+    listen 443 ssl default_server;
+	listen [::]:443 ssl default_server;
 
     ssl_certificate         /etc/nginx/ssl/ssl_cert.crt;
     ssl_certificate_key     /etc/nginx/ssl/ssl_cert.key;
@@ -67,10 +67,11 @@ server {
     location ~ \.php$ {
 	    try_files $uri =404;
 		fastcgi_split_path_info ^(.+\.php)(/.+)$;
-		fastcgi_pass wordpress:9000;
-		fastcgi_index  index.php;
 		include fastcgi_params;
-		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+		fastcgi_param	REQUEST_METHOD	$request_method;
+		fastcgi_param	SCRIPT_FILENAME	$document_root$fastcgi_script_name; # root/uri/fastcgi_index
+		fastcgi_index	index.php;
+		fastcgi_pass wordpress:9000; # container:port
 	}
 
 	# deny access to .htaccess files, if Apache's document root
