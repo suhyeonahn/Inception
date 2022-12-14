@@ -20,15 +20,15 @@ services:
     depends_on:
       - wordpress
     #tty: true
-  mysql:
+  mariadb:
     #image: mariadb
-    container_name: mysql
+    container_name: mariadb
     build: ./requirements/mariadb
     volumes:
       - db-data:/var/lib/mysql
     restart: unless-stopped
     env_file: .env
-    expose:
+    expose:dock
       - "3306"
    #tty: true
   wordpress:
@@ -45,22 +45,24 @@ services:
       - "3306"
       - "9000"
     depends_on:
-      - mysql
+      - mariadb
 
 volumes:
   db-data:
+    name: db-data
     driver: local
     driver_opts:
       o: bind
       type: none
-      device: /home/suahn/data/mariadb
+      device: /home/suahn/data/db
 
   web-data: # named volume can persist data after restart or remove a container
+    name: web-data
     driver: local
     driver_opts:
       o: bind
       type: none
-      device: /home/suahn/data/wordpress
+      device: /home/suahn/data/web
 
 networks:
   default:
