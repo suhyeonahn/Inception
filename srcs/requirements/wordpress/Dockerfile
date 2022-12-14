@@ -12,27 +12,25 @@ RUN apt-get update \
 #A simple PHP install uses the libapache2-mod-php module by default,
 #which requires installation of the full Apache HTTP server software suite.
 #To avoid this, install either the php-cgi or the php-fpm module for Nginx.
-    #&& apt-get install -y php libapache2-mod-php php7.3 php-json php-mbstring php-mysql php-fpm \
-    #&& apt-get install -y php7.3-fpm php7.3-mysql \
-    && apt-get install -y php-cli php-fpm php-mysql php-json php-opcache php-mbstring php-xml php-gd php-curl \
+    && apt-get install -y php-cli php-fpm php-mysqli php-json php-opcache php-mbstring php-xml php-gd php-curl \
     && apt-get install -y wget
+
 EXPOSE 3306/tcp
-EXPOSE 9000/tcp 
+EXPOSE 9000/tcp
+
 #INSTALL WORDPRESS
 WORKDIR /var/www/html
 RUN wget https://wordpress.org/latest.tar.gz \
     && tar -zxvf latest.tar.gz && rm -rf latest.tar.gz \
     && mv wordpress/* . && rm -r wordpress
-#SETUP PHPMYADMIN
-#RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-english.tar.gz \
-#    && tar xvf phpMyAdmin-4.9.1-english.tar.gz && rm -rf phpMyAdmin-4.9.1-english.tar.gz \
-#    && mv phpMyAdmin-4.9.1-english phpmyadmin
-RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz \
-    && tar xvf phpMyAdmin-latest-all-languages.tar.gz && rm -rf phpMyAdmin-latest-all-languages.tar.gz \
-    && mv phpMyAdmin-5.2.0-all-languages phpmyadmin
 #CONFIG WORDPRESS
 COPY conf/www.conf /etc/php/7.3/fpm/pool.d/
 COPY conf/wp-config.php .
+
+#SETUP PHPMYADMIN
+RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz \
+    && tar xvf phpMyAdmin-latest-all-languages.tar.gz && rm -rf phpMyAdmin-latest-all-languages.tar.gz \
+    && mv phpMyAdmin-5.2.0-all-languages phpmyadmin
 #CONFIG PHPMYADMIN
 COPY conf/config.inc.php phpmyadmin/
 

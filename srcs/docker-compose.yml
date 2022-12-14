@@ -11,7 +11,7 @@ services:
     expose: # publish the ports to the linked services of the container
       - "9000"
     ports:
-      - "8080:443/tcp" # host:container
+      - "443:443/tcp" # host:container
     env_file: .env
     extra_hosts:
       - "${DOMAIN_NAME}:127.0.0.1" # created in /etc/hosts
@@ -49,12 +49,18 @@ services:
 
 volumes:
   db-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/suahn/data/mariadb
+
   web-data: # named volume can persist data after restart or remove a container
-    #driver: local
-    #driver_opts:
-    #  o: bind
-     # type: none
-     # device: /home/suahn/data/www
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/suahn/data/wordpress
 
 networks:
   default:
