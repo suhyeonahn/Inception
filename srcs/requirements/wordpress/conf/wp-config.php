@@ -29,7 +29,7 @@ define( 'DB_USER', 'wp' );
 define( 'DB_PASSWORD', 'pass' );
 
 /** Database hostname */
-define( 'DB_HOST', 'db:3306' );
+define( 'DB_HOST', 'mysql' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -81,8 +81,6 @@ $table_prefix = 'wp_';
  */
 define( 'WP_DEBUG', false);
 
-
-define('WP_ALLOW_REPAIR', true);
 /* Add any custom values between this line and the "stop editing" line. */
 
 
