@@ -22,9 +22,12 @@ server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
-	server_name _;
+	server_name suahn.42.fr;
 
-    return 301 https://$host$request_uri;
+    return 403;
+	#server_name _;
+
+    #return 301 https://$host$request_uri;
 }
 
 
