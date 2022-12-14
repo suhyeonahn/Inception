@@ -22,4 +22,4 @@ TRY THIS
 https://stackoverflow.com/questions/29905953/how-to-correctly-link-php-fpm-and-nginx-docker-containers
 
 
-vm root password: suahn42
+vm root password: 950127
