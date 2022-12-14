@@ -20,3 +20,6 @@ https://jaedoong.tistory.com/entry/Docker%EB%A1%9C-Nginx-PHP-FPM-%EC%97%B0%EA%B2
 
 TRY THIS
 https://stackoverflow.com/questions/29905953/how-to-correctly-link-php-fpm-and-nginx-docker-containers
+
+
+vm root password: 950127
