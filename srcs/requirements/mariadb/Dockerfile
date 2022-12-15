@@ -15,6 +15,7 @@ WORKDIR /docker-entrypoint-initdb.d
 
 COPY conf/setup.sql ./
 RUN ["chmod", "755", "setup.sql"]
+RUN service mysql start
 #RUN service mysql start && mysql < setup.sql
 
 #mysql user gains access to the data file
