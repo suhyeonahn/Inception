@@ -23,3 +23,6 @@ https://stackoverflow.com/questions/29905953/how-to-correctly-link-php-fpm-and-n
 
 
 vm root password: 950127
+
+ADD WORDPRESS DATABASE ADMIN USER
+https://www.linuxshelltips.com/create-new-wordpress-admin-mysql-commandline/
