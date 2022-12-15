@@ -17,11 +17,7 @@ COPY conf/setup.sql ./
 RUN ["chmod", "755", "setup.sql"]
 #RUN service mysql start && mysql < setup.sql
 
-#COPY conf/start-service.sh ./
-#RUN ["chmod", "755", "start-service.sh"]
-#RUN service mysql start && . ./start-service.sh
-
-#mysql user gains access to the data files
+#mysql user gains access to the data file
 RUN chown -R mysql:mysql /var/lib/mysql
 
 CMD ["mysqld"]

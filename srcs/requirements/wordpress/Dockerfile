@@ -27,14 +27,5 @@ RUN wget https://wordpress.org/latest.tar.gz \
 COPY conf/www.conf /etc/php/7.3/fpm/pool.d/
 COPY conf/wp-config.php .
 
-#SETUP PHPMYADMIN
-RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz \
-    && tar xvf phpMyAdmin-latest-all-languages.tar.gz && rm -rf phpMyAdmin-latest-all-languages.tar.gz \
-    && mv phpMyAdmin-5.2.0-all-languages phpmyadmin
-#CONFIG PHPMYADMIN
-COPY conf/config.inc.php phpmyadmin/
-
-RUN echo "<?php phpinfo(); ?>" >> /var/www/html/info.php
-
 #CMD ["service", "php7.3-fpm", "start",";php", "-a"]
 CMD service php7.3-fpm start; php -a
