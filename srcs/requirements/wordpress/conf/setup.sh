@@ -1,6 +1,6 @@
 #!/bin/bash
-WP-CONFIG= "/var/www/html/wp-config.php"
-if [! -f "$WP-CONFIG"]; then
+WP_CONFIG= "/var/www/html/wp-config.php"
+if [! -f "$WP_CONFIG"]; then
     #chek if it's installed
     wp --info
     #download the latest version of the WordPress core files.
