@@ -30,6 +30,7 @@ services:
     env_file: .env
     expose:
       - "3306"
+      - "8080"
    #tty: true
   wordpress:
     #image: wordpress
@@ -50,6 +51,8 @@ services:
   adminer:
     container_name: adminer
     build: ./requirements/adminer
+    volumes:
+      - web-data:/var/www/html
     restart: unless-stopped
     stdin_open: true # -i
     tty: true # -t
