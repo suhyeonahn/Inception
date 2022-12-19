@@ -4,7 +4,7 @@ if  [ ! -f "$WP_CONFIG" ]; then
     #chek if it's installed
     wp --info
     #download the latest version of the WordPress core files.
-    wp core download
+    wp core download --allow-root
     #create the wp-config.php file
     wp core config --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --dbhost=$WORDPRESS_DB_HOST --dbprefix=$WORDPRESS_TABLE_PREFIX --allow-root
     #wp db create
