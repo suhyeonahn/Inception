@@ -4,7 +4,7 @@ LABEL description="MariaDB Server"
 #INSTALL MARIADB
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y mariadb-server mariadb-clinet \
+    && apt-get install -y mariadb-server \
     && apt-get install -y sudo
 
 EXPOSE 3306/tcp
@@ -15,8 +15,8 @@ WORKDIR /docker-entrypoint-initdb.d
 
 COPY conf/setup.sql ./
 RUN ["chmod", "755", "setup.sql"]
-RUN service mysql start
-#RUN service mysql start && mysql < setup.sql
+#RUN service mysql start
+RUN service mysql start && mysql < setup.sql
 
 #mysql user gains access to the data file
 RUN chown -R mysql:mysql /var/lib/mysql
