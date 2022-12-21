@@ -20,18 +20,18 @@ EXPOSE 9000/tcp
 
 #INSTALL WORDPRESS
 WORKDIR /var/www/html
-#RUN wget https://wordpress.org/latest.tar.gz \
-#    && tar -zxvf latest.tar.gz && rm -rf latest.tar.gz \
-#    && mv wordpress/* . && rm -r wordpress
+RUN wget https://wordpress.org/latest.tar.gz \
+    && tar -zxvf latest.tar.gz && rm -rf latest.tar.gz \
+    && mv wordpress/* . && rm -r wordpress
 #CONFIG WORDPRESS
 COPY conf/www.conf /etc/php/7.3/fpm/pool.d/
 #COPY conf/wp-config.php .
 
 #INSTALL WP-CLI
-RUN wget -P ~/ https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-    && chmod +x ~/wp-cli.phar && sudo mv ~/wp-cli.phar /usr/local/bin/wp
-COPY conf/setup.sh .
-RUN ["chmod", "755", "setup.sh"]
-RUN bash ./setup.sh
+#RUN wget -P ~/ https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+#    && chmod +x ~/wp-cli.phar && sudo mv ~/wp-cli.phar /usr/local/bin/wp
+#COPY conf/setup.sh .
+#RUN ["chmod", "755", "setup.sh"]
+#RUN bash ./setup.sh
 #CMD ["service", "php7.3-fpm", "start",";php", "-a"]
 CMD service php7.3-fpm start; php -a

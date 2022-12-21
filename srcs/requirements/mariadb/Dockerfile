@@ -4,7 +4,7 @@ LABEL description="MariaDB Server"
 #INSTALL MARIADB
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y mariadb-server \
+    && apt-get install -y mariadb-server mariadb-clinet \
     && apt-get install -y sudo
 
 EXPOSE 3306/tcp
