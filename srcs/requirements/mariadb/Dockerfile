@@ -11,12 +11,11 @@ EXPOSE 3306/tcp
 
 COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
-WORKDIR /docker-entrypoint-initdb.d
+WORKDIR /
 
-COPY conf/setup.sql ./
+COPY conf/setup.sql .
 RUN ["chmod", "755", "setup.sql"]
-#RUN service mysql start
-RUN service mysql start && sudo mysql < setup.sql && service mysql stop
+RUN service mysql start && sudo mysql < setup.sql
 
 #mysql user gains access to the data file
 RUN chown -R mysql:mysql /var/lib/mysql

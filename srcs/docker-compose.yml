@@ -2,7 +2,6 @@ version: "3.7"
 
 services:
   nginx: # service name
-    #image: nginx # image is built with build
     container_name: nginx
     build: ./requirements/nginx
     volumes:
@@ -21,7 +20,6 @@ services:
       - wordpress
     #tty: true
   mariadb:
-    #image: mariadb
     container_name: mariadb
     build: ./requirements/mariadb
     volumes:
@@ -33,9 +31,9 @@ services:
       - "8080"
    #tty: true
   wordpress:
-    #image: wordpress
     container_name: wordpress
     build: ./requirements/wordpress
+    command: bash ./setup.sh && service php7.3-fpm start; php -a
     volumes:
       - web-data:/var/www/html # host:container
     restart: unless-stopped
