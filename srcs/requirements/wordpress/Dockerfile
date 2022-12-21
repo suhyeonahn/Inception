@@ -20,9 +20,9 @@ EXPOSE 9000/tcp
 
 #INSTALL WORDPRESS
 WORKDIR /var/www/html
-RUN wget https://wordpress.org/latest.tar.gz \
-    && tar -zxvf latest.tar.gz && rm -rf latest.tar.gz \
-    && mv wordpress/* . && rm -r wordpress
+#RUN wget https://wordpress.org/latest.tar.gz \
+#    && tar -zxvf latest.tar.gz && rm -rf latest.tar.gz \
+#    && mv wordpress/* . && rm -r wordpress
 #CONFIG WORDPRESS
 COPY conf/www.conf /etc/php/7.3/fpm/pool.d/
 #COPY conf/wp-config.php .
