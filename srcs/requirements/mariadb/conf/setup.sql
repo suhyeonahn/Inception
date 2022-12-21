@@ -4,5 +4,3 @@ GRANT ALL PRIVILEGES ON wordpress.* TO 'wp'@'%' IDENTIFIED BY 'pass' WITH GRANT 
 FLUSH PRIVILEGES;
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'root_pass';
-
-QUIT;
