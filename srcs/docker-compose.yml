@@ -33,7 +33,6 @@ services:
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
-    command: bash ./setup.sh && service php7.3-fpm start; php -a
     volumes:
       - web-data:/var/www/html # host:container
     restart: unless-stopped

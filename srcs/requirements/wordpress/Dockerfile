@@ -32,6 +32,5 @@ RUN wget -P ~/ https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-
     && chmod +x ~/wp-cli.phar && sudo mv ~/wp-cli.phar /usr/local/bin/wp
 COPY conf/setup.sh .
 RUN ["chmod", "755", "setup.sh"]
-RUN bash ./setup.sh
 
-CMD service php7.3-fpm start; php -a
+CMD bash ./setup.sh; service php7.3-fpm start; php -a
