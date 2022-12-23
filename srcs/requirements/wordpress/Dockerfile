@@ -2,11 +2,11 @@ FROM debian:buster
 LABEL org.opencontainers.image.authors="suahn@student.42.fr"
 LABEL description="Wordpress"
 #INSTALL PHP SCRIPTING LANGUAGE that is needed to run WORDPRESS
-RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install -y sudo wget ca-certificates apt-transport-https lsb-release \
+RUN apt-get upgrade -y \
+    && apt-get install -y sudo wget ca-certificates apt-transport-https gnupg lsb-release \
     && wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list \
+    && apt-get update \
 #Why does a basic PHP install require Apache?
 #PHP requires one of three dependencies to exist on a machine:
 #libapache2-mod-php
@@ -15,7 +15,7 @@ RUN apt-get update \
 #A simple PHP install uses the libapache2-mod-php module by default,
 #which requires installation of the full Apache HTTP server software suite.
 #To avoid this, install either the php-cgi or the php-fpm module for Nginx.
-    && apt-get install -y php8.1-cli php8.1-fpm php8.1-mysqli php8.1-json php8.1-opcache php8.1-mbstring php8.1-xml php8.1-gd php8.1-curl \
+    && apt-get install -y php8.1-{common,cli,xml,zip,mysql,curl,mbstring,gd,intl,xsl,bcmath,imap,soap,readline,sqlite3,gmp}
 
 EXPOSE 3306/tcp
 EXPOSE 9000/tcp
