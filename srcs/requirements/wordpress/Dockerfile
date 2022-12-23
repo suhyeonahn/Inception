@@ -16,8 +16,8 @@ RUN apt-get update \
 #A simple PHP install uses the libapache2-mod-php module by default,
 #which requires installation of the full Apache HTTP server software suite.
 #To avoid this, install either the php-cgi or the php-fpm module for Nginx.
-    && apt-get install -y php8.1-fpm php8.1-common php8.1-cli php8.1-mysql \
-    php8.1-json php8.1-opcache php8.1-mbstring php8.1-xml php8.1-gd php8.1-curl
+    && apt-get install -y php-fpm php-common php-cli php-mysqli \
+    php-json php-opcache php-mbstring php-xml php-gd php-curl php.json
 
 EXPOSE 3306/tcp
 EXPOSE 9000/tcp
@@ -37,4 +37,4 @@ RUN wget -P ~/ https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-
 COPY conf/setup.sh .
 RUN ["chmod", "755", "setup.sh"]
 
-CMD bash ./setup.sh; service php8.1-fpm start; php -a
+CMD bash ./setup.sh; service php7.3-fpm start; php -a

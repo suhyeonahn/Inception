@@ -8,7 +8,7 @@ RUN apt-get update \
     && wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list \
     && apt-get update \
-    && apt-get install -y php8.1
+    && apt-get install -y php php-mysqli
 
 RUN wget "http://www.adminer.org/latest.php" \
     -O /var/www/html/adminer.php
