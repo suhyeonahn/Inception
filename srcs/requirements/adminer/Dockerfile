@@ -5,7 +5,7 @@ LABEL description="adminer"
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y wget gnupg2 lsb-release \
-    && wget https://packages.sury.org/php/apt.gpg
+    && wget https://packages.sury.org/php/apt.gpg \
     && apt-key add apt.gpg \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" \
     | tee /etc/apt/sources.list.d/php.list \
