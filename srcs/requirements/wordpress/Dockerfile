@@ -17,7 +17,7 @@ RUN apt-get update \
 #which requires installation of the full Apache HTTP server software suite.
 #To avoid this, install either the php-cgi or the php-fpm module for Nginx.
     && apt-get install -y php8.2-fpm php8.2-common php8.2-cli php8.2-mysqli \
-    php8.2-json php8.2-opcache php8.2-mbstring php8.2-xml php8.2-gd php8.2-curl php8.2.json
+    php8.2-opcache php8.2-mbstring php8.2-xml php8.2-gd php8.2-curl
 
 EXPOSE 3306/tcp
 EXPOSE 9000/tcp
