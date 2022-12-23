@@ -18,7 +18,6 @@ services:
       - suahn.42.fr
     depends_on:
       - wordpress
-    #tty: true
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
@@ -29,7 +28,6 @@ services:
     expose:
       - "3306"
       - "8080"
-   #tty: true
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
@@ -44,7 +42,6 @@ services:
       - "9000"
     depends_on:
       - mariadb
-
   adminer:
     container_name: adminer
     build: ./requirements/adminer
@@ -53,8 +50,8 @@ services:
     restart: unless-stopped
     stdin_open: true # -i
     tty: true # -t
-    expose:
-      - "8080"
+    ports:
+      - "8080:8080/tcp"
     depends_on:
       - mariadb
 
