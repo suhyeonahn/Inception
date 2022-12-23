@@ -2,7 +2,8 @@ FROM debian:buster
 LABEL org.opencontainers.image.authors="suahn@student.42.fr"
 LABEL description="Wordpress"
 #INSTALL PHP SCRIPTING LANGUAGE that is needed to run WORDPRESS
-RUN apt-get upgrade -y \
+RUN apt-get update \
+    && apt-get upgrade -y \
     && apt-get install -y sudo wget ca-certificates apt-transport-https gnupg lsb-release \
     && wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add - \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list \
