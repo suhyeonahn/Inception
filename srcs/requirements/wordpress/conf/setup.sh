@@ -10,5 +10,4 @@ if  [ ! -f "/var/www/html/wp-config.php" ]; then
     PHP
     wp core install --url=$WORDPRESS_URL --title=$WORDPRESS_TITLE --admin_user=$WORDPRESS_ADMIN --admin_password=$WORDPRESS_ADMIN_PASSWORD --admin_email=$WORDPRESS_ADMIN_EMAIL --allow-root
     wp user create $WORDPRESS_USER $WORDPRESS_USER_EMAIL --user_pass=$WORDPRESS_USER_PASSWORD --role='editor' --path="/var/www/html/" --allow-root
-    touch WP_CONFIG
 fi

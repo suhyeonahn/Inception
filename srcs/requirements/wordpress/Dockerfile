@@ -37,4 +37,4 @@ RUN wget -P ~/ https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-
 COPY conf/setup.sh .
 RUN ["chmod", "755", "setup.sh"]
 
-CMD bash ./setup.sh; service php8.2-fpm start; php -a
+CMD bash /var/www/html/setup.sh; service php8.2-fpm start; php -a
