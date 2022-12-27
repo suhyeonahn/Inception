@@ -54,6 +54,14 @@ services:
       - "8080:8080/tcp"
     depends_on:
       - mariadb
+  redis:
+    container_name: redis
+    build: ./requirements/redis
+    restart: unless-stopped
+    stdin_open: true # -i
+    tty: true # -t
+    ports:
+      - "6379:6379/tcp"
 
 volumes:
   db-data:
