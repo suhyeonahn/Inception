@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 if  [ ! -f "/var/www/html/wp-config.php" ]; then
     #wp plugin install insert-headers-and-footers --activate
     wp core download --allow-root
