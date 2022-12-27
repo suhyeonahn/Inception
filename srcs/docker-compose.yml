@@ -63,6 +63,8 @@ services:
     tty: true # -t
     ports:
       - "6379:6379/tcp"
+    depends_on:
+      - wordpress
 
 volumes:
   db-data:
