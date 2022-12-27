@@ -29,7 +29,7 @@ WORKDIR /var/www/html
 #    && mv wordpress/* . && rm -r wordpress
 #CONFIG WORDPRESS
 COPY conf/www.conf /etc/php/8.2/fpm/pool.d/
-COPY conf/wp-config.php .
+#COPY conf/wp-config.php .
 
 #INSTALL WP-CLI
 RUN wget -P ~/ https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \

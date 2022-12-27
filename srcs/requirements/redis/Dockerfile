@@ -12,4 +12,4 @@ RUN redis-cli && 127.0.0.1:6379> ping
 
 EXPOSE 6379/tcp
 
-CMD service redis-server start
+CMD service redis-server start; redis-cli
