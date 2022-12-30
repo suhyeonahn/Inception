@@ -38,3 +38,6 @@ https://www.linuxshelltips.com/create-new-wordpress-admin-mysql-commandline/
 #To avoid this, install either the php-cgi or the php-fpm module for Nginx.
 
 mysql -u root -p
+
+
+git@vogsphere.42paris.fr:vogsphere/intra-uuid-85f900a6-bec0-4411-936a-d48104ccb5b2-4583526-suahn
