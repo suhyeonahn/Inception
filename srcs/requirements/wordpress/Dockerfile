@@ -32,4 +32,4 @@ COPY conf/www.conf /etc/php/8.2/fpm/pool.d/
 COPY tools/setup.sh .
 RUN ["chmod", "755", "setup.sh"]
 
-CMD bash ./setup.sh; service php8.2-fpm start; php -a
+CMD bash ./setup.sh && service php8.2-fpm start && php -a
