@@ -36,3 +36,5 @@ https://www.linuxshelltips.com/create-new-wordpress-admin-mysql-commandline/
 #A simple PHP install uses the libapache2-mod-php module by default,
 #which requires installation of the full Apache HTTP server software suite.
 #To avoid this, install either the php-cgi or the php-fpm module for Nginx.
+
+mysql -u root -p
