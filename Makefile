@@ -15,7 +15,7 @@ $(NAME)	: credit
 	@mkdir -p ${HOME}/data/db
 	@mkdir -p ${HOME}/data/web
 	@echo "$(YELLOW)"
-	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
+	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🐝 Build images & Run containers                              🐝"
 	@echo "🐝                                                            🐝"
@@ -23,11 +23,11 @@ $(NAME)	: credit
 	@echo "$(RESET)"
 	@docker-compose -f $(SRCS) up --build -d
 	@echo "$(YELLOW)"
-	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝"
+	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🍯 Show running containers                                    🐝"
 	@echo "🐝                                                            🐝"
-	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
+	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝"
 	@echo "$(RESET)"
 	@docker ps -a
 
@@ -48,13 +48,14 @@ fclean	:	clean
 	@echo "$(YELLOW)"
 	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "🐝                                                            🐝"
-	@echo "🐝 Remove volume folders on host computer                     🐝"
+	@echo "🐝 Remove volume folders from host computer                   🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "$(RESET)"
 	@sudo rm -rf ${HOME}/data
 
-re		: fclean all
+re			:
+	@docker ps -a
 
 credit	:
 	@echo "$(YELLOW)"

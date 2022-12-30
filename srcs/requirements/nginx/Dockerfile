@@ -16,13 +16,13 @@ RUN mkdir -p /etc/nginx/ssl \
 
 EXPOSE 443/tcp
 
-#test config syntax
+#TEST CONFIG SYNTAX
 #RUN nginx -t
-#www-data is the user that web servers on Ubuntu (Apache, nginx, for example)
-#use by default for normal operation.
-#The web server process can access any file that www-data can access.
+
+#The web server can access any file that www-data can access.
 WORKDIR /var/www/html
 RUN chown -R www-data:www-data *
 RUN chmod -R 755 *
+
 #run in debug mode (foreground)
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

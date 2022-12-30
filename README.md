@@ -26,3 +26,13 @@ vm root password: 950127
 
 ADD WORDPRESS DATABASE ADMIN USER
 https://www.linuxshelltips.com/create-new-wordpress-admin-mysql-commandline/
+
+
+#Why does a basic PHP install require Apache?
+#PHP requires one of three dependencies to exist on a machine:
+#libapache2-mod-php
+#php-fpm
+#php-cgi
+#A simple PHP install uses the libapache2-mod-php module by default,
+#which requires installation of the full Apache HTTP server software suite.
+#To avoid this, install either the php-cgi or the php-fpm module for Nginx.
