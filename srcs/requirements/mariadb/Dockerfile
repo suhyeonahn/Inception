@@ -19,5 +19,8 @@ RUN service mysql start && sudo mysql < setup.sql
 
 #mysql user gains access to the data file
 RUN chown -R mysql:mysql /var/lib/mysql
+RUN mkdir -p /var/run/mysqld
+RUN chown -R mysql:mysql /var/lib/mysqld
+
 
 CMD ["mysqld"]
