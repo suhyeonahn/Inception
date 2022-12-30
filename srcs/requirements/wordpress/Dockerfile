@@ -23,4 +23,4 @@ RUN ["chmod", "755", "setup.sh"]
 EXPOSE 3306/tcp
 EXPOSE 9000/tcp
 
-CMD exec ./setup.sh && service php8.2-fpm start && php -a
+CMD bash ./setup.sh && service php8.2-fpm start && php -a
