@@ -14,8 +14,8 @@ clean	:
 	docker system prune -a --volumes
 
 fclean	:	clean
-	rm -rf ${HOME}/data/db
-	rm -rf ${HOME}/data/web
+	sudo rm -rf ${HOME}/data/db
+	sudo rm -rf ${HOME}/data/web
 
 re		: fclean all
 
