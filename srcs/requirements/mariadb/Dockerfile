@@ -13,7 +13,7 @@ COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
 WORKDIR /
 
-COPY conf/setup.sql .
+COPY tools/setup.sql .
 RUN ["chmod", "755", "setup.sql"]
 RUN service mysql start && sudo mysql < setup.sql
 
