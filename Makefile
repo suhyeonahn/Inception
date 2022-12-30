@@ -33,7 +33,7 @@ $(NAME)	: credit
 	@echo "$(YELLOW)"
 	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝"
 	@echo "🐝                                                            🐝"
-	@echo "🐝 Show volumes                                    	 🐝"
+	@echo "🐝 Show volumes                                    	         🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🐝🐝🐝🍯🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "$(RESET)"
@@ -53,7 +53,7 @@ clean	:
 	@echo "$(YELLOW)"
 	@echo "🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "🐝                                                            🍯"
-	@echo "🐝 Down containers & RM images,volumes                      🐝"
+	@echo "🐝 Down containers & RM images,volumes                        🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝"
 	@echo "$(RESET)"
@@ -70,8 +70,7 @@ fclean	:	clean
 	@echo "$(RESET)"
 	@sudo rm -rf ${HOME}/data
 
-re			:
-	@docker ps -a
+re			:	fclean all
 
 credit	:
 	@echo "$(YELLOW)"
