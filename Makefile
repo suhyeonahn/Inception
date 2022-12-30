@@ -6,11 +6,11 @@ SRCS	= ./srcs/docker-compose.yml
 
 $(NAME)	: credit
 	@echo "$(YELLOW)"
-	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
+	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝"
 	@echo "🍯                                                            🐝"
 	@echo "🐝 Create volume folders on host computer                     🐝"
 	@echo "🐝                                                            🐝"
-	@echo "🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
+	@echo "🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "$(RESET)"
 	@mkdir -p ${HOME}/data/db
 	@mkdir -p ${HOME}/data/web
