@@ -8,7 +8,7 @@ $(NAME)	: credit
 	@echo "$(YELLOW)"
 	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝"
 	@echo "🍯                                                            🐝"
-	@echo "🐝 Create volume folders on host computer                     🐝"
+	@echo "🐝 Create volumes on host computer                            🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "$(RESET)"
@@ -33,11 +33,19 @@ $(NAME)	: credit
 	@echo "$(YELLOW)"
 	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝"
 	@echo "🐝                                                            🐝"
-	@echo "🐝 Show created volumes                                    	 🐝"
+	@echo "🐝 Show volumes                                    	 🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🐝🐝🐝🍯🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "$(RESET)"
-	@docker volume inspect $(docker volume ls -q)
+	@docker volume inspect db-data web-data
+	@echo "$(YELLOW)"
+	@echo "🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝"
+	@echo "🐝                                                            🐝"
+	@echo "🐝 Show networks                                 	 	 	 🐝"
+	@echo "🐝                                                            🍯"
+	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
+	@echo "$(RESET)"
+	@docker network ls
 
 all		: $(NAME)
 
@@ -45,7 +53,7 @@ clean	:
 	@echo "$(YELLOW)"
 	@echo "🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "🐝                                                            🍯"
-	@echo "🐝 Down containers & RM images - volumes                      🐝"
+	@echo "🐝 Down containers & RM images,volumes                      🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝"
 	@echo "$(RESET)"
@@ -56,7 +64,7 @@ fclean	:	clean
 	@echo "$(YELLOW)"
 	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "🐝                                                            🐝"
-	@echo "🐝 Remove volume folders from host computer                   🐝"
+	@echo "🐝 Remove volumes from host computer                          🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "$(RESET)"
