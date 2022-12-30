@@ -12,8 +12,8 @@ $(NAME)	: credit
 	@echo "🐝                                                            🐝"
 	@echo "🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "$(RESET)"
-	@mkdir -p ${HOME}/data/db
-	@mkdir -p ${HOME}/data/web
+	mkdir -p ${HOME}/data/db
+	mkdir -p ${HOME}/data/web
 	@echo "$(YELLOW)"
 	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝"
 	@echo "🐝                                                            🐝"
@@ -23,13 +23,21 @@ $(NAME)	: credit
 	@echo "$(RESET)"
 	@docker-compose -f $(SRCS) up --build -d
 	@echo "$(YELLOW)"
-	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
+	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🍯 Show running containers                                    🐝"
 	@echo "🐝                                                            🐝"
 	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝"
 	@echo "$(RESET)"
 	@docker ps -a
+	@echo "$(YELLOW)"
+	@echo "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝"
+	@echo "🐝                                                            🐝"
+	@echo "🐝 Show created volumes                                    	 🐝"
+	@echo "🐝                                                            🐝"
+	@echo "🐝🐝🐝🍯🐝🐝🐝🐝🍯🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝"
+	@echo "$(RESET)"
+	@docker volume inspect $(docker volume ls -q)
 
 all		: $(NAME)
 

@@ -14,7 +14,6 @@ COPY conf/50-server.cnf ./mariadb.conf.d/
 COPY tools/setup.sql .
 RUN ["chmod", "755", "setup.sql"]
 RUN service mysql start && sudo mysql < setup.sql
-
 #mysql user gains access yto the data file
 RUN chown -R mysql:mysql /var/lib/mysql
 

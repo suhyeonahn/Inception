@@ -14,7 +14,7 @@ RUN apt-get update \
 WORKDIR /var/www/html
 #INSTALL WP-CLI
 RUN wget -P . https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-    && chmod +x ~/wp-cli.phar && sudo mv ~/wp-cli.phar /usr/local/bin/wp
+    && chmod +x ./wp-cli.phar && sudo mv ./wp-cli.phar /usr/local/bin/wp
 #CONFIG WORDPRESS
 COPY conf/www.conf /etc/php/8.2/fpm/pool.d/
 COPY tools/setup.sh .
@@ -23,4 +23,4 @@ RUN ["chmod", "755", "setup.sh"]
 EXPOSE 3306/tcp
 EXPOSE 9000/tcp
 
-CMD bash ./setup.sh && service php8.2-fpm start && php -a
+CMD exec ./setup.sh && service php8.2-fpm start && php -a
