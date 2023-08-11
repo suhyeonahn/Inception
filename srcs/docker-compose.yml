@@ -13,8 +13,8 @@ services:
     ports:
       - "443:443/tcp" # host:container
     env_file: .env
-    extra_hosts:
-      - "${DOMAIN_NAME}:127.0.0.1" # created in /etc/hosts
+    #extra_hosts:
+    #  - "suahn.42.fr:127.0.0.1" # created in /etc/hosts
     depends_on:
       - wordpress
   mariadb:

@@ -22,7 +22,7 @@ COPY conf/www.conf /etc/php/8.2/fpm/pool.d/
 #INSTALL WP-CLI
 RUN wget -P ~/ https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && chmod +x ~/wp-cli.phar && sudo mv ~/wp-cli.phar /usr/local/bin/wp
-COPY tools/setup.sh .
+COPY tools/setup.sh /var/www/html
 RUN ["chmod", "755", "setup.sh"]
 
 CMD bash ./setup.sh; service php8.2-fpm start; php -a
