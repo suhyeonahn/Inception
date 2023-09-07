@@ -9,4 +9,4 @@ configured) only without nginx.
 • A second volume that contains a WordPress website files.
 • A docker-network that establishes the connection between the containers
 • The containers have to restart in case of a crash.
-![ince](https://github.com/suhyeonahn/Inception/assets/54574221/20cb2fad-b773-47ed-91a8-46b628b56221)
+![ince](https://github.com/suhyeonahn/Inception/assets/54574221/869288b2-f193-46d3-b884-b400adca284b)
